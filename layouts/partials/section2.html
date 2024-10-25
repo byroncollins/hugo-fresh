@@ -1,6 +1,9 @@
 {{- $section2 := .Site.Params.section2 }}
 {{- $title    := index $section2 "title" }}
 {{- $subtitle := index $section2 "subtitle" }}
+{{- $image    := index $section2 "image" }}
+{{- $buttonText := index $section2 "buttontext" }}
+{{- $buttonLink := index $section2 "buttonlink" }}
 {{- $features := index $section2 "features" }}
 <section class="section is-medium" id="section2">
   <div class="container">
@@ -9,15 +12,20 @@
         <h1 class="title section-title">{{ $title }}</h1>
         <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
         <div class="divider"></div>
+        <figure class="image is-2by1 mt-5">
+          <img src="{{ printf "images/%s" $image | relURL }}" alt="Description">
+        </figure>
+        <p>
+          <div class="has-text-centered">
+            <a class="button cta rounded primary-btn raised mt-5" href="{{ $buttonLink }}">
+              {{ $buttonText }}
+            </a>
+          </div>
+        </p>
       </div>
       <div class="column is-7 mt-60">
         {{- range $features }}
         <article class="media icon-box">
-          <figure class="media-left">
-            <p class="image">
-              <img src="{{ printf "/images/illustrations/icons/%s.svg" .icon | relURL }}">
-            </p>
-          </figure>
           <div class="media-content mt-50">
             <div class="content">
               <p>
