@@ -25,7 +25,7 @@ footer.footer-dark {
             line-height: 40px;
             font-size: 1.1rem;
             a {
-                color: $light-blue-grey;
+                color: $smoke-white;
                 font-weight: 400;
                 transition: all 0.5s;
             }
@@ -42,3 +42,7 @@ footer.footer-dark {
         }
     }
 }
+
+.icon-gap {
+    margin-right: 20px; /* Adjust the value as needed */
+  }
