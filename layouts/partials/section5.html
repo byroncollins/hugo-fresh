@@ -21,21 +21,27 @@
           <form{{ with $action }} action="{{ . }}"{{end}}{{ with $method }} method="{{ . }}"{{end}}>
             <div class="columns is-multiline">
               <div class="column is-6">
-                <input class="input is-medium" name="name" type="text" placeholder="Enter your name">
+                <input class="input is-medium" name="name" type="text" placeholder="이름">
               </div>
               <div class="column is-6">
-                <input class="input is-medium" name="email" type="email" placeholder="Enter your email address">
+                <input class="input is-medium" name="email" type="email" placeholder="이메일">
               </div>
               <div class="column is-12">
-                <label for="subject">Subject</label>
-                <select name="subject" id="subject">
-                  <option value="general">General</option>
-                  <option value="expert">Expert</option>
-                  <option value="other">Other</option>
-              </select>
+                <div class="field is-medium">
+                  <label class="label is-medium">주제</label>
+                  <div class="control">
+                    <div class="select is-primary is-medium">
+                      <select>
+                        <option>앱관련 문의</option>
+                        <option>시니어 전문가단 문의</option>
+                        <option>기타</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>                
               </div>
               <div class="column is-12">
-                <textarea class="textarea" name="message" rows="10" placeholder="Write something..."></textarea>
+                <textarea class="textarea" name="message" rows="10" placeholder="문의사항 쓰기..."></textarea>
               </div>
               <div class="form-footer has-text-centered mt-10">
                 <button class="button cta is-large primary-btn raised is-clear">{{ $buttonText }}</button>
