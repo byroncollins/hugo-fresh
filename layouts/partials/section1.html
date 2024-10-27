@@ -2,6 +2,7 @@
 {{- $title    := index $section1 "title" }}
 {{- $subtitle := index $section1 "subtitle" }}
 {{- $tiles    := index $section1 "tiles" }}
+{{- $clientLogos := index $section1 "clientlogos" }}
 <section class="section section-feature-grey is-medium" id="section1">
   <div class="container">
     <div class="title-wrapper has-text-centered">
@@ -30,4 +31,5 @@
       </div>
     </div>
   </div>
+  {{ partial "section1-footer.html" . }}
 </section>

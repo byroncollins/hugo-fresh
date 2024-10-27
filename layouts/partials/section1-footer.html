@@ -1,0 +1,17 @@
+{{- $section1        := .Site.Params.section1 }}
+{{- $clientLogos := index $section1 "clientlogos" }}
+<div class="hero-foot mb-20">
+  <div class="container">
+    <div class="tabs is-centered">
+      <ul>
+        {{- range $clientLogos }}
+        <li class="partner-logo-item">
+          <a {{ if .url }} href="{{ .url }}" {{ end }} class="partner-logo-link">
+            <img class="partner-logo" src="{{ printf "images/logos/clients/%s.svg" .logo | relURL }}" alt="{{ .name }}">
+          </a>
+        </li>
+        {{- end }}
+      </ul>
+    </div>
+  </div>
+</div>
