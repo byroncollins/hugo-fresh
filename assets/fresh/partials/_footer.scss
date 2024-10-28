@@ -36,6 +36,13 @@ footer.footer-dark {
             :hover {
                 color: $primary;
             }
+
+            svg {
+                transition: all 0.5s;
+            }
+            :hover {
+                fill: $smoke-white;
+            }
         }
         .level-item .icon {
             color: $primary;

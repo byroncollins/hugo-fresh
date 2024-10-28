@@ -27,6 +27,7 @@
               </div>
               </li>
               <li>
+                <a href="https://map.naver.com/p/search/{{ .address }}" target="_blank">
                 <svg class="icon-gap" width="32" height="40" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g clip-path="url(#clip0_115_9)">
                   <path d="M14.6654 8.60868C14.6654 11.8081 12.1279 14.3862 10.184 16.6526C9.22437 17.7713 8.74457 18.3307 7.9987 18.3307C7.25282 18.3307 6.77302 17.7713 5.81342 16.6526C3.86945 14.3862 1.33203 11.8081 1.33203 8.60868C1.33203 6.76685 2.03441 5.00046 3.28465 3.69809C4.5349 2.39573 6.23059 1.66406 7.9987 1.66406C9.76681 1.66406 11.4625 2.39573 12.7127 3.69809C13.963 5.00046 14.6654 6.76685 14.6654 8.60868Z" stroke="#FF7900" stroke-width="1.6"/>
@@ -38,21 +39,25 @@
                   </clipPath>
                   </defs>
                   </svg>
+                  </a>
                   <a href="https://map.naver.com/p/search/{{ .address }}" target="_blank">{{ .address }}</a>
               </li>
               <li>
-                <svg class="icon-gap" width="32" height="40" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g clip-path="url(#clip0_115_12)">
+                <a href="mailto:{{ .email }}">
+                  <svg class="icon-gap" width="32" height="40" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_115_12)">
                   <path d="M1.87798 3.83594L6.80031 7.08201C8.55849 8.13692 9.43758 8.66437 10.4034 8.64139C11.3693 8.6184 12.2223 8.04973 13.9283 6.91239L18.1246 3.83594M8.33464 14.6693H11.668C14.8107 14.6693 16.382 14.6693 17.3583 13.693C18.3346 12.7166 18.3346 11.1453 18.3346 8.0026C18.3346 4.85991 18.3346 3.28856 17.3583 2.31225C16.382 1.33594 14.8107 1.33594 11.668 1.33594H8.33464C5.19194 1.33594 3.62059 1.33594 2.64428 2.31225C1.66797 3.28856 1.66797 4.85991 1.66797 8.0026C1.66797 11.1453 1.66797 12.7166 2.64428 13.693C3.62059 14.6693 5.19194 14.6693 8.33464 14.6693Z" stroke="#FF7900" stroke-width="1.6" stroke-linecap="round"/>
                   </g>
                   <defs>
                   <clipPath id="clip0_115_12">
-                  <rect width="20" height="16" fill="white"/>
+                    <rect width="20" height="16" fill="white"/>
                   </clipPath>
                   </defs>
                   </svg>
+                </a>
                 <a href="mailto:{{ .email }}">{{ .email }}</a>              
               </li>
+            </ul>
             </ul>
           </div>
         </div>
@@ -65,7 +70,11 @@
               <div class="level-left">
                 {{- range $socialMedia }}
                 <a class="level-item" href="{{ .link }}">
-                  <span class="icon is-large"><i class="fa fa-2x fa-{{ .icon }}"></i></span>
+                  {{ if eq .icon "tiktok" }}
+                    <span class="icon is-large"><img src="{{ printf "images/illustrations/icons/%s.svg" .icon | relURL }}" width="32" height="32"></span>
+                  {{ else }}
+                    <span class="icon is-large"><i class="fa fa-2x fa-{{ .icon }}"></i></span>
+                  {{ end }}
                 </a>
                 {{- end }} 
               </div>
