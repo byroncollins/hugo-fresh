@@ -18,7 +18,7 @@ input.input {
         padding-bottom: 7px;
     }
     &:focus, &:active {
-        border-color: $light-grey;
+        border-color: $primary;
     }
     &.rounded {
         border-radius: 100px;
@@ -46,6 +46,18 @@ input.input {
         ~ span.icon i {
             color: $bloody;
         }
+    }
+}
+
+select.select {
+    &:focus, &:active {
+        border-color: $primary;
+    }
+}
+
+textarea.textarea {
+    &:focus, &:active {
+        border-color: $primary;
     }
 }
 

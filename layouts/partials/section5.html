@@ -19,6 +19,7 @@
       <div class="columns">
         <div class="column is-6 is-offset-3">
           <form{{ with $action }} action="{{ . }}"{{end}}{{ with $method }} method="{{ . }}"{{end}}>
+          
             <div class="columns is-multiline">
               <div class="column is-6">
                 <input class="input is-medium" name="name" type="text" placeholder="이름">
@@ -27,24 +28,30 @@
                 <input class="input is-medium" name="email" type="email" placeholder="이메일">
               </div>
               <div class="column is-12">
-                <div class="field is-medium">
                   <label class="label is-medium">주제</label>
-                  <div class="control">
-                    <div class="select is-primary is-medium">
-                      <select>
+                    <div class="select is-medium">
+                      <select name="subject" id="subject-select">
                         <option>앱관련 문의</option>
                         <option>시니어 전문가단 문의</option>
                         <option>기타</option>
                       </select>
                     </div>
-                  </div>
-                </div>                
               </div>
               <div class="column is-12">
                 <textarea class="textarea" name="message" rows="10" placeholder="문의사항 쓰기..."></textarea>
               </div>
+              <!-- Hidden fields to trick spam bots -->
+              <div style="display:none;">
+                <input type="text" name="details" value="" style="display:none !important" tabindex="-1" autocomplete="off">
+                <input type="checkbox" name="contact_me_by_email_only" value="1" style="display:none !important" tabindex="-1" autocomplete="off">
+              </div>
+              <div class="column is-12" id="alert" style="display:none;">
+                <div class="notification is-success" id="alert-message">
+                  메시지가 전송되었습니다.
+                </div>
+              </div>              
               <div class="form-footer has-text-centered mt-10">
-                <button class="button cta is-large primary-btn raised is-clear">{{ $buttonText }}</button>
+                <button class="button cta is-large primary-btn raised is-clear" id="submit">{{ $buttonText }}</button>
               </div>
             </div>
           </form>
